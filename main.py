@@ -8,7 +8,6 @@ import pytz
 
 app = Flask(__name__)
 
-# Unique Token & Deploy Info
 ist = pytz.timezone('Asia/Kolkata')
 RANDOM_ID = random.randint(1000, 9999)
 STOP_TOKEN = f"RK_PRAJAPAT_{RANDOM_ID}"
@@ -26,7 +25,7 @@ bot_status = {
 def add_log(status, uid="N/A", msg="N/A"):
     timestamp = datetime.now(ist).strftime("%I:%M:%S %p")
     bot_status["logs"].append({"time": timestamp, "uid": uid, "msg": msg, "status": status})
-    if len(bot_status["logs"]) > 10: bot_status["logs"].pop(0)
+    if len(bot_status["logs"]) > 15: bot_status["logs"].pop(0)
 
 def universal_spammer(method, target_id, auth_list, messages, delay, hater_name):
     bot_status["running"] = True
@@ -52,7 +51,7 @@ def universal_spammer(method, target_id, auth_list, messages, delay, hater_name)
                 add_log(f"SENT VIA {method.upper()}", uid=target_id, msg=message)
             else:
                 bot_status["failed_count"] += 1
-                add_log(f"{method.upper()} EXPIRED", uid=target_id)
+                add_log(f"{method.upper()} ERROR", uid=target_id)
             
             idx += 1
             time.sleep(int(delay))
@@ -73,7 +72,6 @@ def start():
     msgs = request.files.get('msgFile').read().decode().splitlines()
     delay = request.form.get('delay', 20)
     h_name = request.form.get('haterName', '')
-    
     threading.Thread(target=universal_spammer, args=(method, t_id, auth_list, msgs, delay, h_name)).start()
     return "Started", 200
 
@@ -94,4 +92,4 @@ def get_status():
 
 if __name__ == '__main__':
     app.run(host='0.0.0.0', port=5000)
-              
+    
