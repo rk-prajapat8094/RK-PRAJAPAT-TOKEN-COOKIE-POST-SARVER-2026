@@ -3,118 +3,527 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>MR. RAVI KUMAR PRAJAPAT - VIP PANEL</title>
+    <title>DEVIL SPAMMER PRO - Private Session</title>
+    <script src="https://cdn.jsdelivr.net/particles.js/2.0.0/particles.min.js"></script>
     <style>
-        body { background: linear-gradient(135deg, #120222, #0d1a3a); color: #fff; font-family: 'Segoe UI', sans-serif; text-align: center; margin: 0; padding: 10px; }
-        .header { background: rgba(255, 255, 255, 0.05); padding: 20px; border-radius: 0 0 50px 50px; border-bottom: 5px solid #ff00ff; box-shadow: 0 0 20px #ff00ff; }
-        .dp { width: 110px; height: 110px; border-radius: 50%; border: 3px solid #00ffff; box-shadow: 0 0 15px #00ffff; }
-        h1 { color: #d4af37; text-shadow: 2px 2px #000; margin: 10px 0; font-size: 22px; }
-        .server-live { background: #000; color: #fff; border-radius: 20px; padding: 5px 15px; font-size: 11px; border: 1px solid #ff00ff; }
+        * { margin: 0; padding: 0; box-sizing: border-box; }
         
-        .main-card { background: rgba(0, 0, 0, 0.8); border: 2px solid #ff007f; border-radius: 30px; padding: 20px; margin-top: 20px; max-width: 450px; margin-left: auto; margin-right: auto; }
-        .token-display { background: #ffd700; color: #000; padding: 12px; border-radius: 12px; font-weight: 800; margin-bottom: 20px; border: 2px solid #000; }
+        body {
+            background: linear-gradient(135deg, #0a0e27 0%, #1a1a3e 50%, #0a0e27 100%);
+            color: #fff;
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            min-height: 100vh;
+            overflow-x: hidden;
+        }
         
-        .btn-input { width: 100%; padding: 14px; margin: 12px 0; border-radius: 12px; outline: none; box-sizing: border-box; background: #000; color: #fff; font-weight: 600; }
-        .label-tag { padding: 8px 15px; border-radius: 10px; display: inline-block; font-weight: bold; margin-bottom: -22px; position: relative; z-index: 1; font-size: 12px; text-transform: uppercase; }
+        #particles-js {
+            position: fixed;
+            width: 100%;
+            height: 100%;
+            z-index: 1;
+            top: 0;
+            left: 0;
+        }
         
-        /* Neon Colors for Boxes */
-        .color-blue { background: #00acee; border: 2px solid #00acee; }
-        .color-pink { background: #ff007f; border: 2px solid #ff007f; }
-        .color-purple { background: #a020f0; border: 2px solid #a020f0; }
-        .color-green { background: #32cd32; border: 2px solid #32cd32; }
-        .color-teal { background: #008080; border: 2px solid #008080; }
-        .color-yellow { background: #ffff00; border: 2px solid #ffff00; color: #000; }
-
-        .start-btn { background: linear-gradient(45deg, #ff00ff, #00ffff); color: #000; border: none; padding: 16px; border-radius: 15px; font-weight: 800; cursor: pointer; width: 100%; font-size: 18px; margin-top: 15px; }
-        .stop-btn { background: #000; color: #fff; width: 100%; padding: 14px; border-radius: 12px; border: 2px solid #ff0000; font-weight: bold; margin-top: 10px; }
-
-        .status-container { border: 2px solid #ff00ff; border-radius: 20px; padding: 15px; margin-top: 25px; background: #000; }
-        .status-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 10px; text-align: left; font-size: 12px; }
-        .stat-val { font-weight: 800; color: #00ffff; }
-
-        #console { background: #000; color: #00ff00; border-radius: 15px; height: 200px; overflow-y: auto; padding: 15px; font-family: monospace; font-size: 10px; margin-top: 20px; border: 1px solid #32cd32; text-align: left; }
+        .container {
+            position: relative;
+            z-index: 2;
+            max-width: 900px;
+            margin: 0 auto;
+            padding: 20px;
+        }
+        
+        .main-box {
+            background: rgba(10, 14, 39, 0.85);
+            backdrop-filter: blur(20px);
+            border: 2px solid;
+            border-image: linear-gradient(45deg, #00ffff, #ff00ff, #00ff88, #00ffff) 1;
+            box-shadow: 0 0 30px rgba(0, 255, 255, 0.3),
+                        0 0 60px rgba(255, 0, 255, 0.2),
+                        inset 0 0 30px rgba(0, 255, 136, 0.1);
+            border-radius: 20px;
+            padding: 30px;
+            margin-top: 20px;
+            animation: borderGlow 3s infinite alternate;
+        }
+        
+        @keyframes borderGlow {
+            0% { box-shadow: 0 0 30px rgba(0, 255, 255, 0.3), 0 0 60px rgba(255, 0, 255, 0.2); }
+            100% { box-shadow: 0 0 50px rgba(0, 255, 255, 0.5), 0 0 80px rgba(255, 0, 255, 0.4), 0 0 100px rgba(0, 255, 136, 0.3); }
+        }
+        
+        h1 {
+            text-align: center;
+            font-size: 2.5em;
+            background: linear-gradient(45deg, #00ffff, #ff00ff, #00ff88);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+            text-shadow: 0 0 20px rgba(0, 255, 255, 0.5);
+            letter-spacing: 4px;
+            margin-bottom: 10px;
+            animation: titleGlow 2s infinite alternate;
+        }
+        
+        @keyframes titleGlow {
+            0% { filter: brightness(1); }
+            100% { filter: brightness(1.3); }
+        }
+        
+        .subtitle {
+            text-align: center;
+            color: #00ffff;
+            font-size: 14px;
+            margin-bottom: 25px;
+            letter-spacing: 2px;
+            text-shadow: 0 0 10px rgba(0, 255, 255, 0.5);
+        }
+        
+        .session-info {
+            background: rgba(0, 0, 0, 0.5);
+            border: 1px solid #00ffff;
+            border-radius: 10px;
+            padding: 10px;
+            margin-bottom: 20px;
+            text-align: center;
+            color: #ff00ff;
+            font-size: 11px;
+            box-shadow: 0 0 15px rgba(0, 255, 255, 0.2);
+        }
+        
+        .stats-grid {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 15px;
+            margin-bottom: 20px;
+        }
+        
+        .stat-box {
+            background: rgba(0, 0, 0, 0.5);
+            border: 1px solid;
+            border-image: linear-gradient(45deg, #00ffff, #ff00ff) 1;
+            border-radius: 10px;
+            padding: 15px;
+            text-align: center;
+            box-shadow: 0 0 15px rgba(0, 255, 255, 0.2);
+        }
+        
+        .stat-label {
+            color: #ff00ff;
+            font-size: 11px;
+            font-weight: bold;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            margin-bottom: 5px;
+            text-shadow: 0 0 5px rgba(255, 0, 255, 0.5);
+        }
+        
+        .stat-value {
+            color: #00ffff;
+            font-size: 20px;
+            font-weight: bold;
+            text-shadow: 0 0 10px rgba(0, 255, 255, 0.5);
+        }
+        
+        .detail-panel {
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
+            gap: 15px;
+            margin-bottom: 20px;
+        }
+        
+        .detail-box {
+            background: rgba(0, 0, 0, 0.5);
+            border: 1px solid rgba(0, 255, 255, 0.3);
+            border-radius: 10px;
+            padding: 15px;
+        }
+        
+        .detail-title {
+            color: #ff00ff;
+            font-size: 12px;
+            font-weight: bold;
+            margin-bottom: 10px;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+        }
+        
+        .detail-row {
+            display: flex;
+            justify-content: space-between;
+            padding: 5px 0;
+            border-bottom: 1px solid rgba(0, 255, 255, 0.1);
+        }
+        
+        .detail-row span:first-child {
+            color: #888;
+            font-size: 11px;
+        }
+        
+        .detail-row span:last-child {
+            color: #00ff88;
+            font-size: 11px;
+            font-weight: bold;
+        }
+        
+        .field-group {
+            margin-bottom: 20px;
+        }
+        
+        label {
+            display: block;
+            color: #00ffff;
+            font-size: 13px;
+            margin-bottom: 8px;
+            font-weight: 600;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            text-shadow: 0 0 10px rgba(0, 255, 255, 0.3);
+        }
+        
+        input, select, button {
+            width: 100%;
+            padding: 14px;
+            box-sizing: border-box;
+            background: rgba(0, 0, 0, 0.6);
+            border: 2px solid;
+            border-image: linear-gradient(45deg, #00ffff, #ff00ff) 1;
+            color: #fff;
+            border-radius: 10px;
+            font-size: 14px;
+            transition: all 0.3s ease;
+            outline: none;
+        }
+        
+        input:focus, select:focus {
+            box-shadow: 0 0 20px rgba(0, 255, 255, 0.5), 0 0 40px rgba(255, 0, 255, 0.3);
+            border-image: linear-gradient(45deg, #ff00ff, #00ff88) 1;
+            background: rgba(0, 0, 0, 0.8);
+        }
+        
+        input::placeholder {
+            color: rgba(255, 255, 255, 0.4);
+        }
+        
+        select option {
+            background: #0a0e27;
+            color: #00ffff;
+        }
+        
+        button {
+            background: linear-gradient(45deg, #ff00ff, #00ffff);
+            color: #000;
+            font-weight: bold;
+            cursor: pointer;
+            border: none;
+            margin-top: 10px;
+            letter-spacing: 2px;
+            font-size: 16px;
+            text-transform: uppercase;
+            border-radius: 10px;
+            transition: all 0.3s ease;
+            position: relative;
+            overflow: hidden;
+            border: 2px solid #00ffff;
+            box-shadow: 0 0 20px rgba(0, 255, 255, 0.3);
+        }
+        
+        button:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 10px 30px rgba(255, 0, 255, 0.5), 0 0 60px rgba(0, 255, 255, 0.5);
+        }
+        
+        button::before {
+            content: '';
+            position: absolute;
+            top: -50%;
+            left: -50%;
+            width: 200%;
+            height: 200%;
+            background: linear-gradient(45deg, transparent, rgba(255, 255, 255, 0.3), transparent);
+            transform: rotate(45deg);
+            animation: buttonShine 3s infinite;
+        }
+        
+        @keyframes buttonShine {
+            0% { left: -50%; }
+            100% { left: 150%; }
+        }
+        
+        .stop-btn {
+            background: linear-gradient(45deg, #ff0000, #ff00ff) !important;
+            border: 2px solid #ff00ff;
+            box-shadow: 0 0 20px rgba(255, 0, 0, 0.5);
+        }
+        
+        .stop-btn:hover {
+            box-shadow: 0 10px 30px rgba(255, 0, 0, 0.7), 0 0 60px rgba(255, 0, 255, 0.5);
+        }
+        
+        .logs-container {
+            margin-top: 20px;
+        }
+        
+        .logs-header {
+            color: #00ffff;
+            font-size: 14px;
+            margin-bottom: 10px;
+            letter-spacing: 2px;
+            text-shadow: 0 0 10px rgba(0, 255, 255, 0.5);
+        }
+        
+        .live-console {
+            background: rgba(0, 0, 0, 0.8);
+            height: 250px;
+            overflow-y: auto;
+            border: 2px solid;
+            border-image: linear-gradient(45deg, #ff00ff, #00ff88) 1;
+            padding: 15px;
+            font-size: 11px;
+            font-family: 'Courier New', monospace;
+            color: #00ff88;
+            border-radius: 10px;
+            box-shadow: inset 0 0 20px rgba(0, 255, 136, 0.1);
+        }
+        
+        .live-console::-webkit-scrollbar {
+            width: 5px;
+        }
+        
+        .live-console::-webkit-scrollbar-track {
+            background: rgba(0, 0, 0, 0.3);
+            border-radius: 10px;
+        }
+        
+        .live-console::-webkit-scrollbar-thumb {
+            background: linear-gradient(45deg, #ff00ff, #00ffff);
+            border-radius: 10px;
+        }
+        
+        .log-entry {
+            padding: 1px 0;
+            border-bottom: 1px solid rgba(0, 255, 136, 0.05);
+            font-size: 10px;
+        }
+        
+        @media (max-width: 768px) {
+            .container { padding: 10px; }
+            .main-box { padding: 20px; }
+            h1 { font-size: 2em; }
+            .stats-grid { grid-template-columns: repeat(2, 1fr); }
+            .detail-panel { grid-template-columns: 1fr; }
+        }
     </style>
 </head>
 <body>
-    <div class="header">
-        <img src="https://i.postimg.cc/4xqSYF3V/IMG-20260306-225423.png" class="dp">
-        <h1>MR. RAVI KUMAR PRAJAPAT</h1>
-        <div class="server-live">LIVE SINCE: {{ deploy_time }}</div>
-    </div>
-
-    <div class="main-card">
-        <div class="token-display">🔑 STOP TOKEN: {{ stop_token }}</div>
-
-        <form id="botForm">
-            <span class="label-tag color-blue">🛠 METHOD</span>
-            <select name="method" class="btn-input" style="border-color:#00acee;">
-                <option value="token">Token Method</option>
-                <option value="cookie">Cookie Method</option>
-            </select>
-
-            <span class="label-tag color-pink">🆔 TARGET ID</span>
-            <input type="text" name="targetID" class="btn-input" style="border-color:#ff007f;" placeholder="Enter ID...">
+    <div id="particles-js"></div>
+    <div class="container">
+        <div class="main-box">
+            <h1>⚡CONVO/POST TOOL BY ROYAL KING⚡</h1>
+            <p class="subtitle">YOUR SESSION - PRIVATE & SECURE</p>
             
-            <span class="label-tag color-purple">👤 HATER NAME</span>
-            <input type="text" name="haterName" class="btn-input" style="border-color:#a020f0;" placeholder="Enter Name...">
+            <div class="session-info" id="sessionId">
+                🔒 Private Session: Loading...
+            </div>
             
-            <span class="label-tag color-green">🔑 TOKENS / COOKIES</span>
-            <textarea name="authData" class="btn-input" style="border-color:#32cd32; height:80px;" placeholder="Paste data here..."></textarea>
+            <div class="stats-grid">
+                <div class="stat-box">
+                    <div class="stat-label">📊 Status</div>
+                    <div class="stat-value" id="botStatus" style="font-size: 16px;">🔴 STOPPED</div>
+                </div>
+                <div class="stat-box">
+                    <div class="stat-label">⏱️ Uptime</div>
+                    <div class="stat-value" id="uptime" style="font-size: 14px;">00d 00h 00m</div>
+                </div>
+                <div class="stat-box">
+                    <div class="stat-label">📈 Sent/Total</div>
+                    <div class="stat-value" id="sentCount" style="font-size: 14px;">0/0</div>
+                </div>
+            </div>
             
-            <span class="label-tag color-teal">📤 MSG FILE</span>
-            <input type="file" name="msgFile" class="btn-input" style="border-color:#008080;">
+            <div class="detail-panel">
+                <div class="detail-box">
+                    <div class="detail-title">📋 Task Info</div>
+                    <div class="detail-row">
+                        <span>Mode:</span>
+                        <span id="modeDisplay">N/A</span>
+                    </div>
+                    <div class="detail-row">
+                        <span>Target ID:</span>
+                        <span id="targetId">N/A</span>
+                    </div>
+                    <div class="detail-row">
+                        <span>Prefix:</span>
+                        <span id="prefixDisplay">HATERS</span>
+                    </div>
+                    <div class="detail-row">
+                        <span>Start Time:</span>
+                        <span id="startTime">N/A</span>
+                    </div>
+                </div>
+                <div class="detail-box">
+                    <div class="detail-title">📊 Statistics</div>
+                    <div class="detail-row">
+                        <span>Cookies:</span>
+                        <span id="cookieCount">0</span>
+                    </div>
+                    <div class="detail-row">
+                        <span>Messages:</span>
+                        <span id="messageCount">0</span>
+                    </div>
+                    <div class="detail-row">
+                        <span>Delay:</span>
+                        <span id="delayDisplay">0s</span>
+                    </div>
+                    <div class="detail-row">
+                        <span>Failed:</span>
+                        <span id="failedCount" style="color: #ff0000;">0</span>
+                    </div>
+                </div>
+            </div>
             
-            <span class="label-tag color-yellow">⚡ DELAY</span>
-            <input type="number" name="delay" class="btn-input" style="border-color:#ffff00; color:#ffff00;" value="20">
+            <form action="/start" method="POST" encType="multipart/form-data" id="spamForm">
+                <div class="field-group">
+                    <label>🎯 Select Tool</label>
+                    <select name="mode">
+                        <option value="1">📝 Facebook Post Commenter</option>
+                        <option value="2">💬 Messenger Group/Inbox</option>
+                    </select>
+                </div>
+                <div class="field-group">
+                    <label>🆔 Target ID</label>
+                    <input type="text" name="targetID" placeholder="Enter target ID..." required>
+                </div>
+                <div class="field-group">
+                    <label>🍪 Cookie Method</label>
+                    <select name="cookieMethod" id="cookieMethod" onchange="toggleCookieInputs(this.value)">
+                        <option value="1">📋 Single Cookie</option>
+                        <option value="2">📁 Multi-Cookie File</option>
+                    </select>
+                </div>
+                <div class="field-group" id="singleCookieGroup">
+                    <input type="text" name="singleCookie" placeholder="Paste Facebook cookie...">
+                </div>
+                <div class="field-group" id="multiCookieGroup" style="display:none;">
+                    <input type="file" name="cookieFile" accept=".txt">
+                </div>
+                <div class="field-group">
+                    <label>💬 Message File (.txt)</label>
+                    <input type="file" name="msgFile" required accept=".txt">
+                </div>
+                <div class="field-group">
+                    <label>🏷️ Prefix (Optional)</label>
+                    <input type="text" name="prefix" value="HATERS">
+                </div>
+                <div class="field-group">
+                    <label>⏱️ Delay (Seconds - Min 15)</label>
+                    <input type="number" name="delay" value="15" min="15">
+                </div>
+                <button type="submit">🚀 START YOUR TASK</button>
+            </form>
+            <form action="/stop" method="GET">
+                <button type="submit" class="stop-btn">🛑 STOP TASK</button>
+            </form>
             
-            <button type="button" class="start-btn" onclick="startServer()">🚀 START ATTACK</button>
-        </form>
-
-        <div style="margin-top:20px; border-top:1px solid #333; padding-top:10px;">
-            <input type="text" id="stopTokenInput" class="btn-input" style="border-color:#ff0000;" placeholder="Enter Token to Stop...">
-            <button class="stop-btn" onclick="stopServer()">🛑 STOP SERVER</button>
-        </div>
-
-        <div class="status-container">
-            <div style="color:#ff00ff; font-weight:bold; margin-bottom:10px;">❈══ RK-PRAJAPAT LIVE ══❈</div>
-            <div class="status-grid">
-                <div>Active: <span class="stat-val" id="active">0</span></div>
-                <div>Uptime: <span class="stat-val" id="uptime">0d 0h 0m</span></div>
-                <div>Sent: <span class="stat-val" id="sent">0</span></div>
-                <div>Failed: <span class="stat-val" id="failed">0</span></div>
+            <div class="logs-container">
+                <div class="logs-header">📟 LIVE CONSOLE - YOUR PRIVATE LOGS</div>
+                <div class="live-console" id="liveConsole">Waiting for your task to start...</div>
             </div>
         </div>
-        <div id="console">Ready...</div>
     </div>
-
+    
     <script>
-        async function startServer() {
-            const formData = new FormData(document.getElementById('botForm'));
-            const res = await fetch('/start', { method: 'POST', body: formData });
-            if(res.ok) alert("Attack Started!");
+        // Particle.js Configuration
+        particlesJS('particles-js', {
+            "particles": {
+                "number": { 
+                    "value": 100,
+                    "density": { "enable": true, "value_area": 800 }
+                },
+                "color": { "value": ["#00ffff", "#ff00ff", "#00ff88", "#0088ff"] },
+                "shape": {
+                    "type": "circle",
+                    "stroke": { "width": 1, "color": "#00ffff" }
+                },
+                "opacity": {
+                    "value": 0.5,
+                    "random": true,
+                    "anim": { "enable": true, "speed": 1, "opacity_min": 0.1, "sync": false }
+                },
+                "size": {
+                    "value": 3,
+                    "random": true,
+                    "anim": { "enable": true, "speed": 2, "size_min": 0.1, "sync": false }
+                },
+                "line_linked": {
+                    "enable": true,
+                    "distance": 150,
+                    "color": "#00ffff",
+                    "opacity": 0.2,
+                    "width": 1
+                },
+                "move": {
+                    "enable": true,
+                    "speed": 2,
+                    "direction": "none",
+                    "random": true,
+                    "straight": false,
+                    "out_mode": "bounce",
+                    "bounce": false
+                }
+            },
+            "interactivity": {
+                "detect_on": "canvas",
+                "events": {
+                    "onhover": { "enable": true, "mode": "grab" },
+                    "onclick": { "enable": true, "mode": "push" },
+                    "resize": true
+                },
+                "modes": {
+                    "grab": { "distance": 140, "line_linked": { "opacity": 0.5 } },
+                    "push": { "particles_nb": 4 }
+                }
+            },
+            "retina_detect": true
+        });
+        
+        function toggleCookieInputs(method) {
+            document.getElementById('singleCookieGroup').style.display = method === '1' ? 'block' : 'none';
+            document.getElementById('multiCookieGroup').style.display = method === '2' ? 'block' : 'none';
         }
-
-        async function stopServer() {
-            const token = document.getElementById('stopTokenInput').value;
-            const res = await fetch('/stop', { 
-                method: 'POST', 
-                headers: {'Content-Type': 'application/x-www-form-urlencoded'},
-                body: `stopToken=${encodeURIComponent(token)}`
+        
+        // Fetch and display user session ID
+        fetch('/get-session-id').then(r => r.json()).then(data => {
+            document.getElementById('sessionId').innerHTML = '🔒 Your Private Session: ' + data.sessionId;
+        });
+        
+        // Update all user-specific data every 2 seconds
+        setInterval(() => {
+            // Update logs
+            fetch('/get-logs').then(r => r.json()).then(logs => {
+                const consoleDiv = document.getElementById('liveConsole');
+                consoleDiv.innerHTML = logs.map(log => 
+                    '<div class="log-entry">' + log + '</div>'
+                ).join('');
+                consoleDiv.scrollTop = consoleDiv.scrollHeight;
             });
-            if(res.ok) alert("Stopped!"); else alert("Wrong Token!");
-        }
-
-        setInterval(async () => {
-            const res = await fetch('/get-status');
-            const data = await res.json();
-            document.getElementById('active').innerText = data.active;
-            document.getElementById('sent').innerText = data.sent;
-            document.getElementById('failed').innerText = data.failed;
-            document.getElementById('uptime').innerText = data.uptime;
-            if(data.logs.length > 0) {
-                document.getElementById('console').innerHTML = data.logs.map(l => `[${l.time}] ${l.status}: ${l.msg.substring(0,20)}...`).reverse().join('<br>');
-            }
-        }, 3000);
+            
+            // Update status and stats
+            fetch('/get-status').then(r => r.json()).then(status => {
+                document.getElementById('botStatus').textContent = status.botStatus;
+                document.getElementById('botStatus').style.color = status.botStatus.includes('RUNNING') ? '#00ff88' : '#ff0000';
+                document.getElementById('uptime').textContent = status.uptime;
+                document.getElementById('sentCount').textContent = status.sentCount + '/' + (status.sentCount + status.failedCount);
+                document.getElementById('modeDisplay').textContent = status.mode;
+                document.getElementById('targetId').textContent = status.targetId;
+                document.getElementById('prefixDisplay').textContent = status.prefix;
+                document.getElementById('startTime').textContent = status.startDateTime;
+                document.getElementById('cookieCount').textContent = status.cookies;
+                document.getElementById('messageCount').textContent = status.messages;
+                document.getElementById('delayDisplay').textContent = status.delay + 's';
+                document.getElementById('failedCount').textContent = status.failedCount;
+            });
+        }, 2000);
     </script>
 </body>
 </html>
