@@ -1,62 +1,73 @@
-import os
+import streamlit as st
 import time
+import threading
 import requests
-from flask import Flask, request, render_template_string
+from datetime import datetime
 
-app = Flask(__name__)
+# Page Configuration
+st.set_page_config(page_title="RK KRISHNA BRAND", page_icon="🫅", layout="wide")
 
-# --- प्रोफेशनल UI डिजाइन ---
-HTML_DESIGN = """
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>FB E2EE BY RK-PRAJAPAT</title>
-    <style>
-        body { background-color: #0d1117; color: white; font-family: 'Segoe UI', sans-serif; text-align: center; }
-        .header { background: linear-gradient(135deg, #667eea 0%, #764ba2 100%); padding: 20px; border-radius: 0 0 20px 20px; box-shadow: 0 4px 15px rgba(0,0,0,0.5); }
-        .container { max-width: 500px; margin: 30px auto; padding: 20px; background: #161b22; border: 1px solid #30363d; border-radius: 15px; }
-        input { width: 90%; padding: 12px; margin: 10px 0; background: #0d1117; border: 1px solid #58a6ff; color: white; border-radius: 8px; }
-        button { width: 100%; padding: 15px; background: #238636; border: none; color: white; font-weight: bold; border-radius: 8px; cursor: pointer; transition: 0.3s; }
-        button:hover { background: #2ea043; }
-        .footer { margin-top: 50px; font-size: 12px; color: #8b949e; }
-    </style>
-</head>
-<body>
-    <div class="header">
-        <h1>🫅 FB E2EE AUTOMATION</h1>
-        <p>Made by RK KRISHNA BRAND</p>
-    </div>
-    <div class="container">
-        <form action="/start" method="post">
-            <input type="text" name="cookie" placeholder="Paste Facebook Cookie" required>
-            <input type="text" name="chat_id" placeholder="Enter Target Chat ID" required>
-            <input type="text" name="msg" placeholder="Enter Your Message" required>
-            <input type="number" name="delay" value="30" placeholder="Delay in Seconds">
-            <button type="submit">▶️ START AUTOMATION</button>
-        </form>
-    </div>
-    <div class="footer">© 2025 RK-PRAJAPAT | ALL RIGHTS RESERVED</div>
-</body>
-</html>
-"""
+# Uptime calculation
+if 'start_time' not in st.session_state:
+    st.session_state.start_time = datetime.now()
 
-@app.route('/')
-def home():
-    return render_template_string(HTML_DESIGN)
+if 'logs' not in st.session_state:
+    st.session_state.logs = []
 
-@app.route('/start', methods=['POST'])
-def start():
-    cookie = request.form.get('cookie')
-    chat_id = request.form.get('chat_id')
-    message = request.form.get('msg')
-    delay = int(request.form.get('delay', 30))
+if 'running' not in st.session_state:
+    st.session_state.running = False
 
-    # यहाँ बैकएंड पर मैसेज भेजने का काम शुरू होगा
-    # Note: E2EE के लिए कुकी और चैट आईडी सही होना जरूरी है
-    return f"<h1>✅ Automation Started!</h1><p>Target ID: {chat_id}<br>Message will be sent every {delay} seconds.</p><a href='/'>Go Back</a>"
+def get_uptime():
+    diff = datetime.now() - st.session_state.start_time
+    hours, remainder = divmod(diff.seconds, 3600)
+    minutes, seconds = divmod(remainder, 60)
+    return f"{hours}h {minutes}m {seconds}s"
 
-if __name__ == "__main__":
-    port = int(os.environ.get("PORT", 5000))
-    app.run(host='0.0.0.0', port=port)
+# CSS Load (External file link logic)
+with open('style.css') as f:
+    st.markdown(f'<style>{f.read()}</style>', unsafe_allow_html=True)
+
+# UI Header
+st.markdown('<div class="main-header"><h1>🫅 FB E2EE AUTOMATION</h1><p>Made by RK KRISHNA BRAND</p></div>', unsafe_allow_html=True)
+
+# Sidebar for Stats
+st.sidebar.title("📊 Server Stats")
+st.sidebar.info(f"⏱️ Uptime: {get_uptime()}")
+status = "🟢 Running" if st.session_state.running else "🔴 Stopped"
+st.sidebar.markdown(f"**Status:** {status}")
+
+# Input Fields
+col1, col2 = st.columns(2)
+with col1:
+    cookie = st.text_input("Enter Facebook Cookie", type="password")
+    chat_id = st.text_input("Enter Target Chat ID")
+with col2:
+    message = st.text_input("Enter Your Message")
+    delay = st.number_input("Delay (Seconds)", min_value=1, value=30)
+
+# Start/Stop Buttons
+btn_col1, btn_col2 = st.columns(2)
+if btn_col1.button("🚀 START SERVER", use_container_width=True):
+    if cookie and chat_id:
+        st.session_state.running = True
+        st.session_state.logs.append(f"[{datetime.now().strftime('%H:%M:%S')}] ✅ Server Started Successfully!")
+    else:
+        st.error("❌ Missing Details!")
+
+if btn_col2.button("⏹️ STOP SERVER", use_container_width=True):
+    st.session_state.running = False
+    st.session_state.logs.append(f"[{datetime.now().strftime('%H:%M:%S')}] 🛑 Server Stopped.")
+
+# Long Console Log
+st.markdown("### 🖥️ Live Console Log")
+log_box = st.empty()
+
+# Automation Logic
+if st.session_state.running:
+    # यहाँ आप अपना संदेश भेजने का लूप चला सकते हैं
+    st.session_state.logs.append(f"[{datetime.now().strftime('%H:%M:%S')}] Sending msg to {chat_id}...")
+    # requests.post(...) logic goes here
+
+# Display Logs
+log_text = "\n".join(st.session_state.logs[::-1])
+log_box.text_area("", value=log_text, height=300, label_visibility="collapsed")
